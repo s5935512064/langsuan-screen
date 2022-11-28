@@ -3,6 +3,8 @@ import type { AppProps } from "next/app";
 import React, { FC, useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import MenuBtn from "../components/MenuBtn";
+import { AnimatePresence } from "framer-motion";
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -12,5 +14,15 @@ export default function App({ Component, pageProps }: AppProps) {
     });
   }, []);
 
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <AnimatePresence
+        exitBeforeEnter={true}
+        initial={false}
+        onExitComplete={() => window.scrollTo(0, 0)}
+      >
+        <Component {...pageProps} />
+      </AnimatePresence>
+    </>
+  );
 }

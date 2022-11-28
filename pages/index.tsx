@@ -1,12 +1,13 @@
 import Head from "next/head";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import Navbar from "../components/Navbar";
 import React, { useEffect, useState, MouseEvent } from "react";
 import useSWR from "swr";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Autoplay, Pagination, Navigation } from "swiper";
-
+import Layout from "../components/Layout";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
@@ -23,28 +24,12 @@ const URL_READ_FILE = process.env.NEXT_PUBLIC_API_URL + `api/readfiles`;
 export default function Home() {
   const { data, error } = useSWR(URL_READ_FILE, fetcher);
 
-  useEffect(() => {
-    console.log(data);
-  });
-
-  useEffect(() => {
-    const listener = (e: { preventDefault: () => void }) => {
-      e.preventDefault();
-    };
-
-    document.body.addEventListener("touchmove", listener, { passive: false });
-
-    return () => {
-      document.body.removeEventListener("touchmove", listener);
-    };
-  });
-
   if (!data) {
     return <div>Loading..</div>;
   }
 
   return (
-    <>
+    <Layout>
       <Head>
         <meta charSet="utf-8" />
         <meta
@@ -79,8 +64,6 @@ export default function Home() {
         <meta name="author" content="Siam Sindhorn" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <Navbar />
 
       <div className="w-full h-screen overflow-hidden flex items-center relative justify-center">
         <Swiper
@@ -197,7 +180,7 @@ export default function Home() {
           </audio>
         </Swiper>
 
-        <Link href={"/sindhorn-village"}>
+        {/* <Link href={"/sindhorn-village"}>
           <button
             type="button"
             id="closeAds"
@@ -219,7 +202,7 @@ export default function Home() {
             </svg>
             DIRECTORY
           </button>
-        </Link>
+        </Link> */}
       </div>
 
       {/* <div className="min-h-screen w-full flex flex-col gap-7 items-center px-16 pt-36">
@@ -239,6 +222,6 @@ export default function Home() {
           </div>
         </div>
       </div> */}
-    </>
+    </Layout>
   );
 }

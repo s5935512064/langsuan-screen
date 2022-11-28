@@ -97,6 +97,7 @@ const BSDBook: FC<Props> = (): JSX.Element => {
 
             <div className="relative">
               <Image
+                quality={100}
                 src={"/assets/BSDBook/2.webp"}
                 fill
                 alt="cover"

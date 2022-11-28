@@ -5,6 +5,8 @@ import React, { FC, useEffect, useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import SDTBooks from "../../components/SDTBooks";
 import BSDBook from "../../components/BSDBook";
+import Navbar from "../../components/Navbar";
+import Layout from "../../components/Layout";
 
 function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(" ");
@@ -41,7 +43,7 @@ const Temp: NextPage<Props> = () => {
   }
 
   return (
-    <>
+    <Layout>
       <Head>
         <meta charSet="utf-8" />
         <meta
@@ -417,7 +419,7 @@ const Temp: NextPage<Props> = () => {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               style={{
-                backgroundImage: "url(/assets/SDV_Masterplan_V02_GS.webp)",
+                backgroundImage: "url(/assets/SDV_Masterplan_01.webp)",
                 // backgroundPosition: "100% 100%",
                 backgroundSize: "100% 100%",
                 backgroundRepeat: "no-repeat",
@@ -599,7 +601,7 @@ const Temp: NextPage<Props> = () => {
           </div>
         </Dialog>
       </Transition>
-    </>
+    </Layout>
   );
 };
 
