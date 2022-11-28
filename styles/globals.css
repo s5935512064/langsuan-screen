@@ -1,26 +1,117 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "kings_caslonregular";
+  src: url("fonts/kings_caslon-webfont.woff2") format("woff2"),
+    url("fonts/kings_caslon-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+@font-face {
+  font-family: "Helvetica";
+  src: url("fonts/HelveticaNeueLTPro-Roman.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
-* {
-  box-sizing: border-box;
+@font-face {
+  font-family: "Helvetica";
+  src: url("fonts/HelveticaNeueCyr-Light.woff") format("woff");
+  font-weight: light;
+  font-style: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+@font-face {
+  font-family: "helenehessregular";
+  src: url("fonts/helenehess-regular-webfont.woff2") format("woff2"),
+    url("fonts/helenehess-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@layer base {
+  html,
   body {
-    color: white;
-    background: black;
+    padding: 0;
+    margin: 0;
+    font-family: "Helvetica";
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html {
+      color-scheme: dark;
+    }
+    body {
+      color: white;
+      background: black;
+    }
+  }
+}
+
+@layer components {
+  .curl {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(
+      135deg,
+      #fff,
+      #f3f3f3 45%,
+      #ddd 50%,
+      #aaa 50%,
+      #bbb 56%,
+      #ccc 62%,
+      #f3f3f3 80%,
+      #fff 100%
+    );
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.5s ease;
+  }
+
+  .curl:hover {
+    width: 100px;
+    height: 100px;
+  }
+  .curl:hover:before,
+  .curl:hover:after {
+    box-shadow: 0 24px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .pages {
+    height: 256px;
+    width: 256px;
+  }
+
+  .page {
+    height: 100%;
+    width: 100%;
+    user-select: none;
+    touch-action: none;
+  }
+
+  .page1 {
+    background-color: pink;
+  }
+
+  .page2 {
+    background-color: yellow;
+  }
+
+  .page3 {
+    background-color: aqua;
   }
 }
