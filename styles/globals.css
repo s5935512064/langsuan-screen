@@ -49,6 +49,10 @@
     box-sizing: border-box;
   }
 
+  img {
+    pointer-events: none !important;
+  }
+
   @media (prefers-color-scheme: dark) {
     html {
       color-scheme: dark;

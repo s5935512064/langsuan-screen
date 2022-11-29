@@ -11,7 +11,7 @@ function classNames(...classes: any[]) {
 const MenuBtn: FC<Props> = (): JSX.Element => {
   return (
     <>
-      <div className="fixed bottom-10 w-56 h-16 z-50 left-1/2 -translate-x-28 rounded-full bg-white flex justify-center gap-4">
+      <div className="fixed bottom-10 w-56 h-16 z-50 right-0 -translate-x-28 rounded-full bg-white flex justify-center gap-4">
         <button
           type="button"
           className="px-4 py-2 text-lg font-bold inline-flex gap-2 items-center"
