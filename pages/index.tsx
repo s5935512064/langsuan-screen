@@ -13,6 +13,8 @@ import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+import DotLoader from "react-spinners/DotLoader";
+
 function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(" ");
 }
@@ -25,7 +27,11 @@ export default function Home() {
   const { data, error } = useSWR(URL_READ_FILE, fetcher);
 
   if (!data) {
-    return <div>Loading..</div>;
+    return (
+      <div className="w-full h-screen flex justify-center items-center bg-black">
+        <DotLoader color="#FFF" />
+      </div>
+    );
   }
 
   return (
@@ -179,49 +185,7 @@ export default function Home() {
             <source src="TunePocket.mp3" type="audio/mpeg"></source>
           </audio>
         </Swiper>
-
-        {/* <Link href={"/sindhorn-village"}>
-          <button
-            type="button"
-            id="closeAds"
-            title="closeAds"
-            // onClick={closeAds}
-            className=" w-[200px] px-4 py-3 bg-white text-black absolute top-10 right-10 z-50 rounded-full text-xl shadow shockwave border-2 tracking-wide inline-flex gap-3 items-center justify-center font-sans font-semibold duration-500 "
-          >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 18 18"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12.5 11H11.71L11.43 10.73C12.41 9.59 13 8.11 13 6.5C13 2.91 10.09 0 6.5 0C2.91 0 0 2.91 0 6.5C0 10.09 2.91 13 6.5 13C8.11 13 9.59 12.41 10.73 11.43L11 11.71V12.5L16 17.49L17.49 16L12.5 11ZM6.5 11C4.01 11 2 8.99 2 6.5C2 4.01 4.01 2 6.5 2C8.99 2 11 4.01 11 6.5C11 8.99 8.99 11 6.5 11Z"
-                fill="currentColor"
-              />
-            </svg>
-            DIRECTORY
-          </button>
-        </Link> */}
       </div>
-
-      {/* <div className="min-h-screen w-full flex flex-col gap-7 items-center px-16 pt-36">
-        <div className="w-full h-fit relative bg-white">
-          <Image
-            src={"/assets/velaa-plan.png"}
-            alt="plan"
-            width={1920}
-            height={700}
-            style={{ objectFit: "contain", objectPosition: "center" }}
-          />
-        </div>
-
-        <div className="w-full flex justify-between">
-          <div>
-            <p className="font-bold text-xl">SHOP LIST</p>
-          </div>
-        </div>
-      </div> */}
     </Layout>
   );
 }

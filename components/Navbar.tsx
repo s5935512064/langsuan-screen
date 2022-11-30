@@ -73,25 +73,14 @@ const Navbar: FC<Props> = (): JSX.Element => {
     };
   });
 
-  // useEffect(() => {
-  //   if (moveing == false) {
-  //     router.push("/");
-  //   }
-  // }, [moveing]);
+  useEffect(() => {
+    if (moveing == false) {
+      router.push("/");
+    }
+  }, [moveing]);
 
   return (
     <>
-      {/* <div className="w-full h-fit flex justify-center px-16 py-5 fixed">
-        <div className="w-40 h-32 relative">
-          <Image
-            src={"/assets/VELAA_03-Black.GIF"}
-            alt="logo"
-            fill
-            style={{ objectFit: "contain", objectPosition: "center" }}
-          />
-        </div>
-      </div> */}
-
       <div className="flex justify-center fixed bottom-10 z-50 right-10   ">
         <div
           className={classNames(

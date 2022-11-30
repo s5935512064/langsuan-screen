@@ -28,6 +28,7 @@
     "react-dom": "18.2.0",
     "react-flip-page": "^1.6.4",
     "react-pdf": "^6.2.0",
+    "react-spinners": "^0.13.6",
     "swiper": "^8.4.5",
     "swr": "^1.3.0",
     "typescript": "4.9.3"
